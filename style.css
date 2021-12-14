@@ -1,0 +1,19 @@
+.container {
+  width: 500px;
+  height: 500px;
+  margin: auto;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+}
+
+.grid-item {
+  display: flex;
+  border: 1px solid black;
+  padding: 50px;
+  justify-content: center; 
+}
