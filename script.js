@@ -1,7 +1,10 @@
 
-// const playerFactory = (name, letter) => {
-
-// }
+const Player = (name, letter) => {
+  console.log(`making a sick playa ${name}`);
+  const getName = () => name;
+  const getLetter = () => letter;
+  return { getName, getLetter}
+}
 
 const gameboard = (() => {
   // let gameboard = [];
@@ -25,5 +28,11 @@ const gameboard = (() => {
 function startGame(){
   console.log("hello I hear you ");
   const board = gameboard();
+  const testPlayer = Player("BC", "X");
+  console.log(testPlayer.getLetter);
+  console.log(testPlayer.getName);
+
+  // const player1 = PlayerFactory("Brent", "X");
+  // console.log(player1.getLetter);
   board.output;
 }
