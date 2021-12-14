@@ -36,3 +36,8 @@ function startGame(){
   // console.log(player1.getLetter);
   board.output;
 }
+
+const grid1 = document.getElementById("grid-1");
+grid1.addEventListener("click", function(event){
+  console.log('click grid 1');
+})
