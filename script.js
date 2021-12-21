@@ -1,6 +1,6 @@
 
 const Player = (name, letter) => {
-  console.log(`making a sick playa ${name}`);
+  // console.log(`making a sick playa ${name}`);
   const getName = () => name;
   const getLetter = () => letter;
   return { getName, getLetter}
@@ -26,17 +26,12 @@ const gameboard = (() => {
 })
 
 function startGame(){
-  console.log("hello I hear you ");
   const board = gameboard();
-  // window.prompt('Please enter your name', 'Player1');
-  setPlayers();
+  let players = setPlayers();
+  player1 = players[0];
+  player2 = players[1];
+  console.log(player1.getLetter);
 
-  // const testPlayer = Player("BC", "X");
-  // console.log(testPlayer.getLetter);
-  // console.log(testPlayer.getName);
-
-  // const player1 = PlayerFactory("Brent", "X");
-  // console.log(player1.getLetter);
   board.output;
 }
 
@@ -51,6 +46,7 @@ function setPlayers(){
   p2_id.innerHTML = player2_name;
   vs = document.getElementById("vs");
   vs.innerHTML = "VS"
+  return [player1, player2]
 
 }
 

@@ -1,0 +1,53 @@
+// CSS HEX
+$puce: #c6878fff;
+$silver-pink: #b79d94ff;
+$spanish-gray: #969696ff;
+$black-coral: #67697cff;
+$prussian-blue: #253d5bff;
+
+
+body {
+	background-color: $spanish-gray;
+}
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	button {
+		padding: 20px;
+		width: 20%;
+	}
+}
+h1 {
+	margin: auto;
+	padding: 30px;
+}
+.container {
+	width: 500px;
+	height: 500px;
+	margin: auto;
+}
+#player-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-size: large;
+	font-weight: bold;
+	margin-bottom: 50px;
+	padding: 50px;
+}
+#grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+}
+.grid-item {
+	display: flex;
+	border: 1px solid black;
+	padding: 50px;
+	justify-content: center;
+	margin: 5px;
+	&:hover {
+		background-color: $black-coral;
+	}
+}
