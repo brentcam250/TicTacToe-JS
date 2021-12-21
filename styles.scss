@@ -7,7 +7,7 @@ $prussian-blue: #253d5bff;
 
 
 body {
-	background-color: $spanish-gray;
+	background-color: $prussian-blue;
 }
 .header {
 	display: flex;
@@ -18,7 +18,15 @@ body {
 		width: 20%;
 	}
 }
+
+.button{
+	background-color: $silver-pink;
+	font-size: large;
+}
 h1 {
+	color: $spanish-gray;
+	font-size: xx-large;
+	text-shadow: 2px 2px black;
 	margin: auto;
 	padding: 30px;
 }
@@ -35,6 +43,11 @@ h1 {
 	font-weight: bold;
 	margin-bottom: 50px;
 	padding: 50px;
+	p{
+		color: $spanish-gray;
+		text-shadow: 2px 2px black;
+
+	}
 }
 #grid {
 	display: grid;

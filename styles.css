@@ -1,5 +1,5 @@
 body {
-  background-color: #969696ff; }
+  background-color: #253d5bff; }
 
 .header {
   display: flex;
@@ -9,7 +9,14 @@ body {
     padding: 20px;
     width: 20%; }
 
+.button {
+  background-color: #b79d94ff;
+  font-size: large; }
+
 h1 {
+  color: #969696ff;
+  font-size: xx-large;
+  text-shadow: 2px 2px black;
   margin: auto;
   padding: 30px; }
 
@@ -26,6 +33,9 @@ h1 {
   font-weight: bold;
   margin-bottom: 50px;
   padding: 50px; }
+  #player-container p {
+    color: #969696ff;
+    text-shadow: 2px 2px black; }
 
 #grid {
   display: grid;
@@ -39,6 +49,6 @@ h1 {
   justify-content: center;
   margin: 5px; }
   .grid-item:hover {
-    background-color: lightslategray; }
+    background-color: #67697cff; }
 
 /*# sourceMappingURL=styles.css.map */
