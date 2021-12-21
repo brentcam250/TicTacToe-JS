@@ -7,9 +7,17 @@
   <link href ='./style.css' rel = 'stylesheet'>
 </head>
 <body>
+  <div class = 'header'>
+    <h1>Tic Tac Toe</h1>
+    <button onclick='startGame()'>Start Game</button>
 
-  <h1>Tic Tac Toe</h1>
-  <button onclick='startGame()'>Start Game</button>
+  </div>
+
+  <div id = 'player-container'>
+    <p id = 'player1'></p>
+    <p id = 'vs'></p>
+    <p id = 'player2'></p>
+  </div>
   <div class = 'container'>
     <div id = 'grid'>
       <div id = 'grid-1' class = 'grid-item'>1</div>
