@@ -37,13 +37,21 @@ h1 {
     color: #969696ff;
     text-shadow: 2px 2px black; }
 
+#turn-counter {
+  color: #969696ff;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: medium;
+  text-shadow: 2px 2px black; }
+
 #grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr; }
 
 .grid-item {
-  display: flex;
+  display: none;
   border: 1px solid black;
   padding: 50px;
   justify-content: center;
