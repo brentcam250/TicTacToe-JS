@@ -66,6 +66,9 @@ h1 {
 .grid-item {
 	display: none;
 	border: 1px solid black;
+	color: $spanish-gray;
+	font-weight: bold;
+	text-shadow: 2px 2px black;
 	padding: 50px;
 	justify-content: center;
 	margin: 5px;
