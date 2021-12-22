@@ -11,7 +11,12 @@ body {
 
 .button {
   background-color: #b79d94ff;
-  font-size: large; }
+  font-size: large;
+  font-weight: bold;
+  border: none; }
+  .button:hover {
+    box-shadow: 2px 2px black;
+    border: 1px solid black; }
 
 h1 {
   color: #969696ff;

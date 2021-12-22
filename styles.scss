@@ -22,6 +22,12 @@ body {
 .button{
 	background-color: $silver-pink;
 	font-size: large;
+	font-weight: bold;
+	border: none;
+	&:hover{
+		box-shadow: 2px 2px black;
+		border: 1px solid black;
+	}
 }
 h1 {
 	color: $spanish-gray;
