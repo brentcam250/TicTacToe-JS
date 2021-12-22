@@ -81,16 +81,14 @@ const playGame = (() => {
   //add listeners
   boxes.forEach((div)=> {
     div.addEventListener('click', function () {
-      let played_bool = click_cell(div, get_player().get_letter());
+      click_cell(div, get_player().get_letter());
       // if played_bool {
       //   console.log('played');
       // }
 
     })
   })
-  // const click_cell = () => {
-  //   console.log('clicked')
-  // }
+
 
   const click_cell = (div, letter) => {
     let index = parseInt(div.id.charAt(div.id.length-1)-1);
@@ -102,6 +100,7 @@ const playGame = (() => {
       console.log("this cell is free");
 
       div.innerHTML = letter;
+      increment_turn();
     }
   }
 
@@ -127,18 +126,25 @@ const playGame = (() => {
     turn_display.innerHTML = `Turn: ${turn_count}, ${name}'s Turn`;
   }
 
+  const increment_turn = () => {
+    turn_count++;
+    current_player = turn_count %2;
+    set_turn(get_player(), get_turn_count());
+  }
+
   let turn_count = 0;
 
   let players = set_players();
   player1 = players[0];
   player2 = players[1];
 
-  let current_player = player1;
+  let current_player = turn_count % 2;
+
 
 
   const get_turn_count = () => turn_count;
 
-  const get_player = () => current_player
+  const get_player = () => players[current_player];
 
   set_turn(get_player(), get_turn_count());
 
