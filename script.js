@@ -10,7 +10,6 @@ const Player = (name, letter) => {
 const gameboard = (() => {
 
   let boxes = document.querySelectorAll(".grid-item");
-  // let turn_counter = 0;
   let board_array = [0,0,0,0,0,0,0,0];
 
   // display the grid now
@@ -36,12 +35,17 @@ const gameboard = (() => {
 
   }
 
+  const set_winner = (player) => {
+    // console.log('setting winner');
+    let win_display = document.getElementById('turn-counter');
+    win_display.innerHTML = `Winner ${player.get_name()} aka "${player.get_letter()}"`;
+
+  }
   // winning combos: 
   // horz:012, 345, 678
   // vert:036, 147, 258
   // angle:048, 642
   const check_winner = () => {
-    // console.log([get_element(0), get_element(1), get_element(2)].join(''))
     let winning_combos = [ 
       [get_element(0), get_element(1), get_element(2)].join(''), 
       [get_element(3), get_element(4), get_element(5)].join(''), 
@@ -53,38 +57,30 @@ const gameboard = (() => {
       [get_element(6), get_element(4), get_element(2)].join('')
     ];
 
-    // console.log("just letting you know im checkin");
     //check all combos for a winner
     let output = 0;
     winning_combos.forEach(combo => {
-      console.log(`checking ${combo}`);
       if (combo.localeCompare('XXX') == 0){
-        // window.alert(`WINNER! ${combo}`)
-        console.log("Winner player1 ")
 
-        // return 1;
         output = 1;
       }else if (combo.localeCompare('OOO') == 0){
-        // window.alert(`WINNER! ${combo}`)
-        console.log("Winner player2 ")
+
 
         output = 2;
       }
     })
     return output;
-    // console.log(winning_combos);
 
   }
 
-  return {get_element, check_winner, set_element} 
+  return {get_element, check_winner, set_element, set_winner} 
 
 });
 
 
 // game flow object module cause I only want one
 const playGame = (() => {  
-  // player1 = players[0];
-  // player2 = players[1];
+
   const board = gameboard();
 
   let boxes = document.querySelectorAll(".grid-item");
@@ -92,13 +88,13 @@ const playGame = (() => {
   //add listeners
   boxes.forEach((div)=> {
     div.addEventListener('click', function () {
-      click_cell(div, get_player().get_letter());
+      click_cell(div, get_player());
 
     })
   })
 
 
-  const click_cell = (div, letter) => {
+  const click_cell = (div, player) => {
     if (board.check_winner()){
       return 
     }else {
@@ -108,18 +104,21 @@ const playGame = (() => {
         // return 0
         // not played
       }else{
-        console.log("this cell is free");
+        // console.log("this cell is free");
   
-        board.set_element(div, letter, index)
+        board.set_element(div, player.get_letter(), index)
         let winner_bool = board.check_winner();
-        console.log(`winner bool ${winner_bool}`)
+        // console.log(`winner bool ${winner_bool}`)
         if (winner_bool) {
           // if winner_bool == 1 {
             // window.alert(`WINNER! ${letter}`)
-            console.log('winna')
+            board.set_winner(player)
+            // console.log('winna')
           // }
+        }else{
+          increment_turn();
+
         }
-        increment_turn();
       }
     }
 
