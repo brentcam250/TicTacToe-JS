@@ -148,10 +148,11 @@ const playGame = (() => {
   }
 
   const increment_turn = () => {
-    if (turn_count > 8 ){
-      window.alert("game ova ");
-    }
     turn_count++;
+
+    if (turn_count > 8 ){
+      window.alert("Draw =(");
+    }
     current_player = turn_count %2;
     set_turn(get_player(), get_turn_count());
   }
