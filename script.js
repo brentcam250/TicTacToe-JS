@@ -3,8 +3,17 @@ const Player = (name, letter) => {
   // console.log(`making a sick playa ${name}`);
   const getName = () => name;
   const getLetter = () => letter;
-  return { getName, getLetter}
+  const sayName = () => console.log(`my name is ${name}`);
+
+  return { getName, getLetter, sayName}
 }
+
+// function Player(name, letter){
+//   const getName = () => name;
+//   const getLetter = () => letter;
+//   const sayName = () => console.log(`my name is ${name}`);
+//   return {getName, getLetter, sayName}
+// }
 
 const gameboard = (() => {
   // let gameboard = [];
@@ -45,6 +54,7 @@ function startGame(){
   let players = setPlayers();
   player1 = players[0];
   player2 = players[1];
+  player1.sayName();
   console.log(player1.getName);
   setTurn(player1);
 
@@ -68,7 +78,7 @@ function setPlayers(){
 
 function setTurn(player){
   let turn_display = document.getElementById('turn-counter');
-  let name = player.getName
+  let name = player.getName();
   turn_display.innerHTML = `${name}'s Turn`;
 
 }
