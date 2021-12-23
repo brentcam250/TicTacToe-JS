@@ -35,10 +35,15 @@ const gameboard = (() => {
 
   }
 
-  const set_winner = (player) => {
+  const set_winner = (player, draw) => {
     // console.log('setting winner');
     let win_display = document.getElementById('turn-counter');
-    win_display.innerHTML = `Winner ${player.get_name()} aka "${player.get_letter()}"`;
+
+    if (draw){
+      win_display.innerHTML = "Draw";
+    }else{
+      win_display.innerHTML = `Winner ${player.get_name()} aka "${player.get_letter()}"`;
+    }
 
   }
   // winning combos: 
@@ -101,10 +106,8 @@ const playGame = (() => {
       let index = parseInt(div.id.charAt(div.id.length-1)-1);
       if (board.get_element(index)) {
         console.log("this cell is played");
-        // return 0
-        // not played
+
       }else{
-        // console.log("this cell is free");
   
         board.set_element(div, player.get_letter(), index)
         let winner_bool = board.check_winner();
@@ -143,17 +146,21 @@ const playGame = (() => {
   const set_turn = (player, turn_count) => {
     let turn_display = document.getElementById('turn-counter');
     let name = player.get_name();
-    turn_display.innerHTML = `Turn: ${turn_count}, ${name}'s Turn`;
+    turn_display.innerHTML = `Turn: ${turn_count}, ${name}'s aka ${player.get_letter()} Turn`;
   }
 
   const increment_turn = () => {
     turn_count++;
 
     if (turn_count > 8 ){
+      board.set_winner(get_player(), 1);
       window.alert("Draw =(");
+      
+    }else{
+      current_player = turn_count %2;
+      set_turn(get_player(), get_turn_count());
     }
-    current_player = turn_count %2;
-    set_turn(get_player(), get_turn_count());
+
   }
 
   let turn_count = 0;
